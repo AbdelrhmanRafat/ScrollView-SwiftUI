@@ -9,7 +9,17 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        CardView(image: "swiftui-button", category: "SwiftUI", heading: "Drawing a border with Rounded corners", author: "Written by Simon NG")
+        //Introducing Scroll View..
+        ScrollView
+        {
+        CardView(image: "swiftui-button", category: "SwiftUI", heading: "Drawing a border with Rounded corners", author: "Simon NG")
+        CardView(image: "macos-programming", category: "macOS", heading: "Building a simple Editing App", author: "Gabriel")
+            
+            CardView(image: "flutter-app", category: "Flutter", heading: "Building a complex layout with Flutter", author: "Lawrence Tan")
+            
+            CardView(image: "natural-language-api", category: "iOS", heading: "What's New in natural language API", author: "Sai Kambampati")
+        }
+        
     }
 }
 
@@ -40,7 +50,7 @@ struct CardView : View {
                     .fontWeight(.black)
                     .foregroundColor(.primary)
                     .lineLimit(3)
-                Text(author.uppercased())
+                Text("Writtern By " + author.uppercased())
                     .font(.caption)
                     .foregroundColor(.secondary)
             }
