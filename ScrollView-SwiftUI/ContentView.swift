@@ -9,8 +9,27 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        VStack{
+        Image("swiftui-button")
+            .resizable()
+            .aspectRatio(contentMode: .fit)
+            HStack{
+            VStack(alignment: .leading) {
+                Text("SwiftUI")
+                    .font(.headline)
+                    .foregroundColor(.secondary)
+                Text("Drawing a border with Rounded corners")
+                    .font(.title)
+                    .fontWeight(.black)
+                    .foregroundColor(.primary)
+                    .lineLimit(3)
+                Text("Written by Simon NG".uppercased())
+                    .font(.caption)
+                    .foregroundColor(.secondary)
+            }
+                Spacer()
+            }
+        }
     }
 }
 
