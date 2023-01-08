@@ -10,14 +10,18 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         //Introducing Scroll View..
-        ScrollView
-        {
-        CardView(image: "swiftui-button", category: "SwiftUI", heading: "Drawing a border with Rounded corners", author: "Simon NG")
-        CardView(image: "macos-programming", category: "macOS", heading: "Building a simple Editing App", author: "Gabriel")
-            
-            CardView(image: "flutter-app", category: "Flutter", heading: "Building a complex layout with Flutter", author: "Lawrence Tan")
-            
-            CardView(image: "natural-language-api", category: "iOS", heading: "What's New in natural language API", author: "Sai Kambampati")
+        VStack {
+            //Adding Header View
+            HeaderView()
+            ScrollView
+            {
+            CardView(image: "swiftui-button", category: "SwiftUI", heading: "Drawing a border with Rounded corners", author: "Simon NG")
+            CardView(image: "macos-programming", category: "macOS", heading: "Building a simple Editing App", author: "Gabriel")
+                
+                CardView(image: "flutter-app", category: "Flutter", heading: "Building a complex layout with Flutter", author: "Lawrence Tan")
+                
+                CardView(image: "natural-language-api", category: "iOS", heading: "What's New in natural language API", author: "Sai Kambampati")
+            }
         }
         
     }
@@ -28,7 +32,25 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
     }
 }
-
+struct HeaderView : View {
+    var body: some View {
+        HStack{
+            VStack(alignment: .leading){
+            Text("Monday, Aug 20")
+                .font(.caption)
+                .foregroundColor(.secondary)
+            Text("Your Reading")
+                .foregroundColor(.primary)
+                .font(.system(.largeTitle, design: .rounded))
+                .fontWeight(.black)
+        }
+        .layoutPriority(100)
+        Spacer()
+        }
+        .padding([.top,.horizontal])
+        .layoutPriority(-100)
+    }
+}
 struct CardView : View {
     var image : String
     var category : String
@@ -50,7 +72,7 @@ struct CardView : View {
                     .fontWeight(.black)
                     .foregroundColor(.primary)
                     .lineLimit(3)
-                Text("Writtern By " + author.uppercased())
+                Text("Written By " + author.uppercased())
                     .font(.caption)
                     .foregroundColor(.secondary)
             }
