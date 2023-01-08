@@ -13,17 +13,17 @@ struct ContentView: View {
         VStack {
             //Adding Header View
             HeaderView()
-            ScrollView
+            //Introducing Carousel UI
+            ScrollView(.horizontal, showsIndicators : false)
             {
+            HStack{ // Using Hstack to implement Carousel UI
             CardView(image: "swiftui-button", category: "SwiftUI", heading: "Drawing a border with Rounded corners", author: "Simon NG")
             CardView(image: "macos-programming", category: "macOS", heading: "Building a simple Editing App", author: "Gabriel")
-                
                 CardView(image: "flutter-app", category: "Flutter", heading: "Building a complex layout with Flutter", author: "Lawrence Tan")
-                
                 CardView(image: "natural-language-api", category: "iOS", heading: "What's New in natural language API", author: "Sai Kambampati")
             }
         }
-        
+        }
     }
 }
 
@@ -88,5 +88,7 @@ struct CardView : View {
                 .stroke(Color(.sRGB, red: 150/255, green: 150/255, blue: 150/255, opacity: 0.1),lineWidth: 1)
         )
         .padding([.top,.horizontal])
+        .frame(width: 300) // Set Width To be fit for Carousel view.
+
     }
 }
